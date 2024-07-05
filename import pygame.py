@@ -57,6 +57,8 @@ while running:
         meta = pygame.draw.rect(screen, "blue", pygame.Rect(1700, 400, 100,200))
         text = font.render("1º nivel", "black", 'red')
         screen.blit(text, (40, 40))
+        text2 = font.render("Clique X para ir para o proximo nivel.", "black", 'red')
+        screen.blit(text2, (1200, 40))
         
         rect1 = pygame.draw.rect(screen, "black", pygame.Rect(400, y, 60,60))
         rect2 = pygame.draw.rect(screen, "black", pygame.Rect(500, y2, 60,60))
@@ -107,10 +109,7 @@ while running:
                 player = False   
             if player1.colliderect(parede6):
                 player = False      
-            if player1.colliderect(meta):
-                nivel1 = False   
-                screen.fill("white")
-                pygame.display.update()
+            
         if y2 <= 200:
             direction2= 'down'
         if y2 >= 740:
@@ -178,7 +177,8 @@ while running:
         enemies.append(parede9)
         text = font.render("2º nivel", "black", 'red')
         screen.blit(text, (40, 40))
-        
+        text2 = font.render("Clique X para ir para o proximo nivel.", "black", 'red')
+        screen.blit(text2, (1200, 40))
         
         rect1 = pygame.draw.rect(screen, "black", pygame.Rect(400, y, 60,60))
         rect2 = pygame.draw.rect(screen, "black", pygame.Rect(500, y, 60,60))
@@ -235,12 +235,7 @@ while running:
                 player = False          
             if player1.colliderect(parede9):
                 player = False        
-            if player1.colliderect(meta):
-                nivel2 = False   
-                nivel1 = False
-                screen.fill("white")
-                pygame.display.update()
-         
+            
         if y <= 200:
             direction1= 'down'
         if y >= 740:
@@ -275,7 +270,7 @@ while running:
     if nivel1 == False and nivel2 == False:
         nivel3 = True
     while nivel3 == True:
-        font = pygame.font.Font()
+        
         player = True
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -294,19 +289,20 @@ while running:
         
         text = font.render("3º nivel", "black", 'red')
         screen.blit(text, (40, 40))
-        
+        text3 = font.render("Clique X para acabar.", "black", 'red')
+        screen.blit(text3, (1200, 40))
         rect1 = pygame.draw.rect(screen, "black", pygame.Rect(400, yn, 60,60))
-        rect2 = pygame.draw.rect(screen, "black", pygame.Rect(500, y2n, 60,60))
+        rect2 = pygame.draw.rect(screen, "black", pygame.Rect(500, yn, 60,60))
         rect3 = pygame.draw.rect(screen, "black", pygame.Rect(600, yn, 60,60))
-        rect4 = pygame.draw.rect(screen, "black", pygame.Rect(700, y2n, 60,60))
+        rect4 = pygame.draw.rect(screen, "black", pygame.Rect(700, yn, 60,60))
         rect5 = pygame.draw.rect(screen, "black", pygame.Rect(800, yn, 60,60))
-        rect6 = pygame.draw.rect(screen, "black", pygame.Rect(900, y2n, 60,60))
+        rect6 = pygame.draw.rect(screen, "black", pygame.Rect(900, yn, 60,60))
         rect7 = pygame.draw.rect(screen, "black", pygame.Rect(1000, yn, 60,60))
-        rect8 = pygame.draw.rect(screen, "black", pygame.Rect(1100, y2n, 60,60))
+        rect8 = pygame.draw.rect(screen, "black", pygame.Rect(1100, yn, 60,60))
         rect9 = pygame.draw.rect(screen, "black", pygame.Rect(1200, yn, 60,60))
-        rect10 = pygame.draw.rect(screen, "black", pygame.Rect(1300, y2n, 60,60))
+        rect10 = pygame.draw.rect(screen, "black", pygame.Rect(1300, yn, 60,60))
         rect11 = pygame.draw.rect(screen, "black", pygame.Rect(1400, yn, 60,60))
-        rect12 = pygame.draw.rect(screen, "black", pygame.Rect(1500, y2n, 60,60))
+        rect12 = pygame.draw.rect(screen, "black", pygame.Rect(1500, yn, 60,60))
         rect13 = pygame.draw.rect(screen, "black", pygame.Rect(xn, 105, 60,60))
         rect14 = pygame.draw.rect(screen, "black", pygame.Rect(xn2, 205, 60,60))
         rect15 = pygame.draw.rect(screen, "black", pygame.Rect(xn, 735, 60,60))
@@ -337,6 +333,14 @@ while running:
                 player = False
             if player1.colliderect(rect12):
                 player = False
+            if player1.colliderect(rect13):
+                player = False
+            if player1.colliderect(rect14):
+                player = False
+            if player1.colliderect(rect15):
+                player = False
+            if player1.colliderect(rect16):
+                player = False
             if player1.colliderect(parede1):
                 player = False   
             if player1.colliderect(parede2):
@@ -349,10 +353,7 @@ while running:
                 player = False   
             if player1.colliderect(parede6):
                 player = False      
-            if player1.colliderect(meta):
-                nivel1 = False   
-                screen.fill("white")
-                pygame.display.update()
+            
         if y2n <= 300:
             direction2= 'down'
         if y2n >= 700:
@@ -363,7 +364,7 @@ while running:
             y2n -=  8 
         if yn <= 300:
             direction1= 'down'
-        if yn >= 700  :
+        if yn >= 645  :
             direction1= 'up'
         if direction1 == "down":
             yn += 8
@@ -375,17 +376,17 @@ while running:
         if xn2 >= 1535:
             direction3= 'left'
         if direction3 == "right":
-            xn2 += 8
-        if direction2 == "left":
-            xn2 -=  8 
-        if xn <= 300:
-            direction1= 'down'
-        if xn >= 700  :
-            direction1= 'up'
-        if direction1 == "down":
-            xn += 8
-        if direction1 == "up":
-            xn -=  8
+            xn2 += 12
+        if direction3 == "left":
+            xn2 -=  12
+        if xn <= 205:
+            direction4= 'right'
+        if xn >= 1535:
+            direction4= 'left'
+        if direction4 == 'right':
+            xn += 12
+        if direction4 == 'left':
+            xn -=  12
         
             
         pygame.display.update()
@@ -409,5 +410,4 @@ while running:
         dt = clock.tick(60) / 1000
     
 
-    if nivel1 == False and nivel2 == False and nivel3 == False:
-        running = False
+    
